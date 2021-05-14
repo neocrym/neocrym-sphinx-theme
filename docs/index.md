@@ -2,7 +2,7 @@
 hide-toc: true
 ---
 
-# Furo
+# neocrym-sphinx-theme
 
 A clean customisable Sphinx documentation theme.
 
@@ -28,5 +28,5 @@ contributing/index
 kitchen-sink/index
 changelog
 license
-GitHub Repository <https://github.com/pradyunsg/furo>
+GitHub Repository <https://github.com/neocrym/neocrym-sphinx-theme>
 ```

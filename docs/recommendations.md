@@ -1,6 +1,6 @@
 # Recommendations
 
-This page lists a few opinionated recommendations for Sphinx plugins to use in your documentation along with Furo. All these plugins work well with Furo-based Sphinx documentation, but they are not inherently tied to Furo.
+This page lists a few opinionated recommendations for Sphinx plugins to use in your documentation along with neocrym-sphinx-theme. All these plugins work well with neocrym-sphinx-theme-based Sphinx documentation, but they are not inherently tied to neocrym-sphinx-theme.
 
 [MyST (Markedly Structured Text)][MyST]
 : This project enables writing documentation with Markdown in Sphinx[^using-markdown]. This is achieved by making well-thought-out extensions to the CommonMark Specification, which make it as capable as reStructuredText. In case you're wondering if that works well... this documentation is written using MyST.
@@ -16,7 +16,7 @@ This page lists a few opinionated recommendations for Sphinx plugins to use in y
   Disclaimer: I am the creator and the primary maintainer of sphinx-inline-tabs.
 
 [sphinx-autobuild]
-: This project provides a live-reloading server, that rebuilds the documentation and refreshes any open pages automatically when changes are saved. This enables a much shorter feedback loop which can help boost productivity when writing documentation. Furo's development workflow is based on [uses this project](contributing/workflow.md#local-development-server).
+: This project provides a live-reloading server, that rebuilds the documentation and refreshes any open pages automatically when changes are saved. This enables a much shorter feedback loop which can help boost productivity when writing documentation. neocrym-sphinx-theme's development workflow is based on [uses this project](contributing/workflow.md#local-development-server).
 
   Disclaimer: I am the primary maintainer of sphinx-autobuild.
 

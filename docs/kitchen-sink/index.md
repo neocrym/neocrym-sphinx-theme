@@ -1,6 +1,6 @@
 # Kitchen Sink
 
-This section exists as a dump of "all sorts of edge cases" in Furo's styling.
+This section exists as a dump of "all sorts of edge cases" in neocrym-sphinx-theme's styling.
 It is built upon an excellent base provided by Sphinx-RTD-Theme, as written by the amazing folks at ReadTheDocs.
 
 The goal is to ensure that we're adding more content here that looks good, without breaking anything externally. :)

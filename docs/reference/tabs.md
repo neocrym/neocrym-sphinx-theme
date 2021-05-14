@@ -1,6 +1,6 @@
 # Tabs
 
-Tabs are good way to organize content, where the reader has choice they can make (usually based on their environment). Furo works well with [sphinx-inline-tabs], which provides beautiful and functional tabs, grouping code blocks and synchronisation.
+Tabs are good way to organize content, where the reader has choice they can make (usually based on their environment). neocrym-sphinx-theme works well with [sphinx-inline-tabs], which provides beautiful and functional tabs, grouping code blocks and synchronisation.
 
 ```{hint}
 This example is gonna be *very* meta.

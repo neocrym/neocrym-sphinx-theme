@@ -1,8 +1,8 @@
 # Customisation
 
-Furo supports customisation of the theme's overall look and feel (through theme options) as well as a few per-page tweaks.
+neocrym-sphinx-theme supports customisation of the theme's overall look and feel (through theme options) as well as a few per-page tweaks.
 
-This section serves to guide the user with customising Furo-based documentation. This page lists all the theme-specific customisations, as provided by this theme. Other pages in this section provide guidance for making specific customisations when using Sphinx with Furo.
+This section serves to guide the user with customising neocrym-sphinx-theme-based documentation. This page lists all the theme-specific customisations, as provided by this theme. Other pages in this section provide guidance for making specific customisations when using Sphinx with neocrym-sphinx-theme.
 
 ```{toctree}
 :hidden:
@@ -28,9 +28,9 @@ Note that only the configuration options listed here are supported (not the ones
 
 ### `light_css_variables`/`dark_css_variables`
 
-Furo makes extensive use of [CSS variables][css-variables]. These can be overridden by the user and are used for stylizing nearly all elements of the documentation.
+neocrym-sphinx-theme makes extensive use of [CSS variables][css-variables]. These can be overridden by the user and are used for stylizing nearly all elements of the documentation.
 
-Setting `*_css_variables` is the recommended mechanism to override Furo's default values for these variables.
+Setting `*_css_variables` is the recommended mechanism to override neocrym-sphinx-theme's default values for these variables.
 
 ```python
 html_theme_options = {

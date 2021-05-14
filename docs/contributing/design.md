@@ -2,7 +2,7 @@
 
 ## Reason for existence
 
-Furo exists because, at the time of writing, no existing Sphinx documentation theme quite fit what I wanted. The rough structural elements I wanted were:
+neocrym-sphinx-theme exists because, at the time of writing, no existing Sphinx documentation theme quite fit what I wanted. The rough structural elements I wanted were:
 
 - Three-column layout, for proper in-page navigation.
 - Clear navigational sidebar.
@@ -14,7 +14,7 @@ Every existing theme either didn't check all of the boxes above, or tried to do 
 
 ## "Guiding" ideas
 
-Furo's design follows a few of the ideas I've had discovered over the course of browsing the existing documentation themes across ecosystems and static site generators.
+neocrym-sphinx-theme's design follows a few of the ideas I've had discovered over the course of browsing the existing documentation themes across ecosystems and static site generators.
 
 - Focus _must_ be on the content.
 - More stuff is not more good.

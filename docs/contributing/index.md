@@ -1,8 +1,8 @@
 # Contributing
 
-Thank you for your interest in Furo! ✨
+Thank you for your interest in neocrym-sphinx-theme! ✨
 
-Furo is a volunteer maintained open source project, and we welcome contributions of all forms. This section of Furo's documentation serves as a resource to help you to contribute to the project.
+neocrym-sphinx-theme is a volunteer maintained open source project, and we welcome contributions of all forms. This section of neocrym-sphinx-theme's documentation serves as a resource to help you to contribute to the project.
 
 The [Code of Conduct] applies within all community spaces. If you are not familiar with our Code of Conduct policy, take a minute to read the policy before starting with your first contribution.
 
@@ -23,4 +23,4 @@ design
 [Design Goals](./design)
 : Describes the priorities for this theme's design.
 
-[code of conduct]: https://github.com/pradyunsg/furo/blob/main/CODE_OF_CONDUCT.md
+[code of conduct]: https://github.com/neocrym/neocrym-sphinx-theme/blob/main/CODE_OF_CONDUCT.md

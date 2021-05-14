@@ -1,6 +1,6 @@
 # Really Long Page
 
-This page basically exists to show-off Furo's cool table of contents sidebar.
+This page basically exists to show-off neocrym-sphinx-theme's cool table of contents sidebar.
 
 ## Heading 1
 

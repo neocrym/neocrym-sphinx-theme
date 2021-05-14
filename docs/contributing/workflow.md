@@ -18,7 +18,7 @@ To work on this project, you need to have git 2.17+, Python 3.6+ and NodeJS 12.
 - Clone this project using git:
 
   ```
-  git clone https://github.com/pradyunsg/furo.git
+  git clone https://github.com/neocrym/neocrym-sphinx-theme.git
   cd furo
   ```
 
@@ -71,7 +71,7 @@ My workflow, when I'm working on this theme, is along the lines of:
 nox -s docs
 ```
 
-Generate the documentation for Furo into the `build/docs` folder. This (mostly) does the same thing as `nox -s docs-live`, except it invokes `sphinx-build` instead of [sphinx-autobuild].
+Generate the documentation for neocrym-sphinx-theme into the `build/docs` folder. This (mostly) does the same thing as `nox -s docs-live`, except it invokes `sphinx-build` instead of [sphinx-autobuild].
 
 ## Release process
 
@@ -81,13 +81,13 @@ Generate the documentation for Furo into the `build/docs` folder. This (mostly) 
 
 ## Installing directly from GitHub
 
-There are times when you might want to install the in-development version of Furo (mostly for testing that a fix actually does fix things).
+There are times when you might want to install the in-development version of neocrym-sphinx-theme (mostly for testing that a fix actually does fix things).
 
-Furo cannot be installed directly using pip with the Git repository directly. This is because the Git repository does not contained the compiled CSS/JS. The distributions on PyPI have the compiled assets (because they're platform agnostic and plain text).
+neocrym-sphinx-theme cannot be installed directly using pip with the Git repository directly. This is because the Git repository does not contained the compiled CSS/JS. The distributions on PyPI have the compiled assets (because they're platform agnostic and plain text).
 
 ```sh
 # Clone the repository
-git clone https://github.com/pradyunsg/furo.git
+git clone https://github.com/neocrym/neocrym-sphinx-theme.git
 cd furo
 # Build the static assets
 npm install

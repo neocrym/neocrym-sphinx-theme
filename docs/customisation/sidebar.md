@@ -1,15 +1,15 @@
 # Changing sidebar elements
 
-Furo supports customising the elements that show up in the navigational sidebar (left). This is to provide documentation authors who are willing to work with HTML/CSS to change and tweak how the sidebar looks.
+neocrym-sphinx-theme supports customising the elements that show up in the navigational sidebar (left). This is to provide documentation authors who are willing to work with HTML/CSS to change and tweak how the sidebar looks.
 
 ```{warning}
-Furo is not designed to accommodate for all potential custom sidebar designs. It is also possible to get suboptimal results (or even break the layout!) when overriding the default sidebar.
+neocrym-sphinx-theme is not designed to accommodate for all potential custom sidebar designs. It is also possible to get suboptimal results (or even break the layout!) when overriding the default sidebar.
 ```
 
 ```{admonition} Info
 :class: tip
 
-The general expectation is that users who override the sidebar would also carefully consider how their documentation looks across various platforms (i.e. not take a "looks OK on my machine" approach) and would be willing to override Furo's styles to make it work with their sidebar design.
+The general expectation is that users who override the sidebar would also carefully consider how their documentation looks across various platforms (i.e. not take a "looks OK on my machine" approach) and would be willing to override neocrym-sphinx-theme's styles to make it work with their sidebar design.
 
 Some things to consider when doing this are:
 
@@ -21,7 +21,7 @@ Some things to consider when doing this are:
 
 ## Default design
 
-The following code snippet lists the fragments (HTML files from Furo's theme folder) that are used for the default sidebar design.
+The following code snippet lists the fragments (HTML files from neocrym-sphinx-theme's theme folder) that are used for the default sidebar design.
 
 ```{literalinclude} ../../src/neocrym_sphinx_theme/theme/neocrym_sphinx_theme/theme.conf
 ---
@@ -37,7 +37,7 @@ The scrollable region in the sidebar is determined by `sidebar/scroll-start.html
 
 ## Making changes
 
-There are two main ways to customise Furo's sidebar:
+There are two main ways to customise neocrym-sphinx-theme's sidebar:
 
 - override the content of the default templates with your own templates, using [`templates_path`][sphinx-templates_path].
 - change the entire sidebar structure, using [`html_sidebars`][sphinx-html_sidebars].
@@ -56,7 +56,7 @@ For the above example -- adding a tagline after the name/logo -- you'd want to a
 
 ### Using `html_sidebars`
 
-This is useful when you want to make drastic or major changes to the design of Furo's sidebar.
+This is useful when you want to make drastic or major changes to the design of neocrym-sphinx-theme's sidebar.
 
 As an example, to make the _entire_ sidebar scrollable, it is possible to set `sidebar/scroll-start.html` as the first fragment and `sidebar/scroll-end.html` as the last fragment.
 

@@ -23,7 +23,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
-    # Our custom extension, only meant for Furo's own documentation.
+    # Our custom extension, only meant for neocrym-sphinx-theme's own documentation.
     "neocrym_sphinx_theme.sphinxext",
     # External stuff
     "myst_parser",

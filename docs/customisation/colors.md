@@ -10,7 +10,7 @@ As a consequence of this design, the dark mode inherits the variable definitions
 
 ## Defining overrides for defaults
 
-neocrym-sphinx-theme allows defining [CSS variables that overrides its default values](css-variables). The exact variable names to use can be found in neocrym-sphinx-theme's source code, where the [variable declarations](https://github.com/neocrym/neocrym-sphinx-theme/tree/main/src/furo/assets/styles/variables) are made.
+neocrym-sphinx-theme allows defining [CSS variables that overrides its default values](css-variables). The exact variable names to use can be found in neocrym-sphinx-theme's source code, where the [variable declarations](https://github.com/neocrym/neocrym-sphinx-theme/tree/main/src/neocrym_sphinx_theme/assets/styles/variables) are made.
 
 This mechanism allows configuring nearly every facet of neocrym-sphinx-theme's design, including spacing between various items and the colors of nearly every component.
 

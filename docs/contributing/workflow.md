@@ -19,7 +19,7 @@ To work on this project, you need to have git 2.17+, Python 3.6+ and NodeJS 12.
 
   ```
   git clone https://github.com/neocrym/neocrym-sphinx-theme.git
-  cd furo
+  cd neocrym-sphinx-theme
   ```
 
 - Install the project's dependencies:
@@ -88,7 +88,7 @@ neocrym-sphinx-theme cannot be installed directly using pip with the Git reposit
 ```sh
 # Clone the repository
 git clone https://github.com/neocrym/neocrym-sphinx-theme.git
-cd furo
+cd neocrym-sphinx-theme
 # Build the static assets
 npm install
 ./node_modules/.bin/gulp build

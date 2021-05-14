@@ -13,13 +13,13 @@ The repository layout is pretty standard for a Python project, with a few quirks
 - `dist/` -- Generated as part of the release process.
 - `docs/` -- Sources for the documentation.
 - `src/`
-  - `furo/` -- actual source code for the package
+  - `neocrym_sphinx_theme/` -- actual source code for the package
     - `__init__.py` -- Handles interaction with Sphinx and some configuration.
     - `navigation.py` -- Generates the sidebar navigation HTML.
     - `sphinxext.py` -- Defines the internal-only `neocrym-sphinx-theme-demo` directive.
     - `assets/` -- contains Sass and JS source code.
     - `theme/` -- the folder that Sphinx adds to template lookup.
-      - `furo/` -- main Sphinx theme folder
+      - `neocrym_sphinx_theme/` -- main Sphinx theme folder
         - `static/` -- contains compiles CSS and JS code.
         - everything else here -- the underlying HTML templates.
 - `gulpfile.js` -- for [Gulp](https://gulpjs.com/).
@@ -29,9 +29,9 @@ The repository layout is pretty standard for a Python project, with a few quirks
 
 ## Theme build process
 
-neocrym-sphinx-theme's build process uses Gulp. Running `gulp build` in the repository root will compile the theme's CSS and JS assets (`src/furo/assets/`) into the correct final files (inside `src/furo/theme/furo/static`).
+neocrym-sphinx-theme's build process uses Gulp. Running `gulp build` in the repository root will compile the theme's CSS and JS assets (`src/neocrym_sphinx_theme/assets/`) into the correct final files (inside `src/neocrym_sphinx_theme/theme/neocrym_sphinx_theme/static`).
 
-When building the distributions for upload, `gulp build` is run once and the `src/furo/assets/` directory is excluded for the final distribution. Thus, _both_ the source distribution and wheel distribution do not contain the original source code for neocrym-sphinx-theme and only contain the compiled SCSS and JS files.
+When building the distributions for upload, `gulp build` is run once and the `src/neocrym_sphinx_theme/assets/` directory is excluded for the final distribution. Thus, _both_ the source distribution and wheel distribution do not contain the original source code for neocrym-sphinx-theme and only contain the compiled SCSS and JS files.
 
 ```{note}
 It is not ideal that the version-controlled source tree is not installable using pip directly. There is a need for a `gulp build` command to be run between the clone and installation.
@@ -57,7 +57,7 @@ The fancy bit is that Gumshoe.js is used to highlight the currently active headi
 
 ### CSS variables for customisation
 
-This is pretty much the "USP" of this theme. In `src/furo/theme/furo/partials/_head_css_variables.html`, the user provided CSS variables are translated and written into each page's HTML. This is set up, such that these declarations overrides any other declarations made in the CSS of the theme.
+This is pretty much the "USP" of this theme. In `src/neocrym_sphinx_theme/theme/neocrym_sphinx_theme/partials/_head_css_variables.html`, the user provided CSS variables are translated and written into each page's HTML. This is set up, such that these declarations overrides any other declarations made in the CSS of the theme.
 
 This essentially allows the user to control the values of the CSS variables, and hence control how the theme looks.
 

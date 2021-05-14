@@ -140,7 +140,9 @@ def _html_page_context(
 
     # Assets
     context["neocrym_sphinx_theme_assets"] = {
-        "neocrym_sphinx_theme-extensions.css": neocrym_sphinx_theme_asset_hash("styles/neocrym_sphinx_theme-extensions.css"),
+        "neocrym-sphinx-theme-extensions.css": neocrym_sphinx_theme_asset_hash(
+            "styles/neocrym-sphinx-theme-extensions.css"
+        ),
         "main.js": neocrym_sphinx_theme_asset_hash("scripts/main.js"),
     }
 
@@ -170,10 +172,12 @@ def _html_page_context(
         # Not using the HTML builders with neocrym_sphinx_theme for some reason?
         "style" not in context
         # Did not override neocrym_sphinx_theme's default CSS
-        or context["style"] == "styles/neocrym_sphinx_theme.css"
+        or context["style"] == "styles/neocrym-sphinx-theme.css"
     )
     if should_use_own_styles:
-        context["neocrym_sphinx_theme_assets"]["style"] = neocrym_sphinx_theme_asset_hash("styles/neocrym_sphinx_theme.css")
+        context["neocrym_sphinx_theme_assets"][
+            "style"
+        ] = neocrym_sphinx_theme_asset_hash("styles/neocrym-sphinx-theme.css")
     else:
         context["neocrym_sphinx_theme_assets"]["style"] = "_static/" + context["style"]
 

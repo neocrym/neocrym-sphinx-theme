@@ -4,7 +4,7 @@ Admonitions are a great way to include side content, without significantly inter
 
 ## Basic Usage
 
-````{furo-demo}
+````{neocrym-sphinx-theme-demo}
 ```{note}
 This is what the most basic admonitions look like in Markdown.
 ```
@@ -30,7 +30,7 @@ If you really want, you can even have lists, or code, or tables.
 
 ## Custom Titles
 
-````{furo-demo}
+````{neocrym-sphinx-theme-demo}
 ```{admonition} Look ma! A custom title.
 It looks different though.
 ```
@@ -138,7 +138,7 @@ Describe the CSS variables needed.
 ## Nesting admonitions
 
 
-``````{furo-demo}
+``````{neocrym-sphinx-theme-demo}
 `````{note}
 You can nest admonitions.
 

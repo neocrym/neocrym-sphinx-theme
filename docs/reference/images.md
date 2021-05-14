@@ -4,7 +4,7 @@ Images can be a great supplement to technical documentation text. Sphinx provide
 
 ## Basic Usage
 
-```{furo-demo}
+```{neocrym-sphinx-theme-demo}
 ![](https://source.unsplash.com/200x200/daily?cute+animals)
 
 This is from Markdown.
@@ -18,7 +18,7 @@ This is from reStructuredText.
 
 ## Alignment
 
-````{furo-demo}
+````{neocrym-sphinx-theme-demo}
 ```{image} https://source.unsplash.com/200x200/daily?cute+animals
 :align: center
 ```
@@ -35,7 +35,7 @@ This is from reStructuredText.
 
 ## Captions
 
-````{furo-demo}
+````{neocrym-sphinx-theme-demo}
 
 ```{figure} https://source.unsplash.com/200x200/daily?cute+animals
 This is a captioned image, which needs the "figure" directive.

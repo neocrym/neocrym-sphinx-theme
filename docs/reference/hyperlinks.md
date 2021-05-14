@@ -2,7 +2,7 @@
 
 Hyperlinks are extremely useful for connecting related topics without having to depart from a clear linear exposition. Sphinx supports various formats for creating hyperlinks, with {any}`sphinx.ext.intersphinx` being a great tool for cross-documentation hyperlinks.
 
-```{furo-demo}
+```{neocrym-sphinx-theme-demo}
 Hyperlinks can take various forms, so here's a list of them:
 
 - standalone hyperlink: <https://python.org/>

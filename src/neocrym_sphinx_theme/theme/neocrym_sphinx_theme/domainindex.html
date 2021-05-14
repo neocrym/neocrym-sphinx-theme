@@ -32,7 +32,7 @@
     <td></td><td><strong>{{ letter }}</strong></td><td></td>
   </tr>
   {%- for (name, grouptype, page, anchor, extra, qualifier, description) in entries %}
-  <tr{% if grouptype == 2 %} class="cg-{{ groupid.current() }}"{% endif %}>
+  <tr {% if grouptype == 2 %} class="cg-{{ groupid.current() }}"{% endif %}>
     <td>{% if grouptype == 1 -%}
         <img src="{{ pathto('_static/minus.png', 1) }}" class="toggler"
               id="toggle-{{ groupid.next() }}" style="display: none" alt="-" />

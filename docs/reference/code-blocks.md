@@ -2,7 +2,7 @@
 
 Code blocks and examples are an essential part of technical project documentation. Sphinx provides syntax highlighting for these out-of-the-box, through Pygments.
 
-````{furo-demo}
+````{neocrym-sphinx-theme-demo}
 
 Code blocks in Markdown can be created in various ways.
 

@@ -4,7 +4,7 @@ API documentation serves as an important reference in technical documentation. S
 
 This example uses {any}`sphinx.ext.autodoc` for generating the API documentation skeleton. {any}`sphinx.ext.intersphinx` provides links for classes in type annotations.
 
-````{furo-demo}
+````{neocrym-sphinx-theme-demo}
 ```{eval-rst}
 .. autoclass:: urllib3.util.Retry
     :members:

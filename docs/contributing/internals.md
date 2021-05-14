@@ -16,7 +16,7 @@ The repository layout is pretty standard for a Python project, with a few quirks
   - `furo/` -- actual source code for the package
     - `__init__.py` -- Handles interaction with Sphinx and some configuration.
     - `navigation.py` -- Generates the sidebar navigation HTML.
-    - `sphinxext.py` -- Defines the internal-only `furo-demo` directive.
+    - `sphinxext.py` -- Defines the internal-only `neocrym-sphinx-theme-demo` directive.
     - `assets/` -- contains Sass and JS source code.
     - `theme/` -- the folder that Sphinx adds to template lookup.
       - `furo/` -- main Sphinx theme folder
@@ -61,7 +61,7 @@ This is pretty much the "USP" of this theme. In `src/furo/theme/furo/partials/_h
 
 This essentially allows the user to control the values of the CSS variables, and hence control how the theme looks.
 
-### `furo-demo` directive
+### `neocrym-sphinx-theme-demo` directive
 
 This directive was written to make it easier to write the examples used in the [Reference](../reference/index) section. The way it works is pretty straightforward really:
 

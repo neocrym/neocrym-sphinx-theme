@@ -2,7 +2,7 @@
 
 Text formatting is an important aspect of written text. Sphinx provides support for several ways to apply specific formatting.
 
-```{furo-demo}
+```{neocrym-sphinx-theme-demo}
 Content can have inline markup like *emphasis*, **strong emphasis**,
 `inline literals`, {sub}`subscript`, {sup}`superscript` and so much more.
 Providing a reference to {pep}`8` is straightforward. You can also include

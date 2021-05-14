@@ -6,7 +6,7 @@ Tabs are good way to organize content, where the reader has choice they can make
 This example is gonna be *very* meta.
 ```
 
-````{furo-demo}
+````{neocrym-sphinx-theme-demo}
 
 ```{tab} One
 First.

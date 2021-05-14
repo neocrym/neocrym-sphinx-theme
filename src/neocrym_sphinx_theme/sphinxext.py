@@ -92,4 +92,4 @@ class _neocrym_sphinx_themeDemoDirective(SphinxDirective):
 
 def setup(app: Sphinx) -> None:
     """For setting up the directive."""
-    app.add_directive("neocrym_sphinx_theme-demo", _neocrym_sphinx_themeDemoDirective)
+    app.add_directive("neocrym-sphinx-theme-demo", _neocrym_sphinx_themeDemoDirective)

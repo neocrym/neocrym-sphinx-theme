@@ -192,7 +192,7 @@ Second list level
 
       heh heh. child. try to beat this embed:
 
-      .. literalinclude:: ../../src/furo/__init__.py
+      .. literalinclude:: ../../src/neocrym_sphinx_theme/__init__.py
           :language: python
           :linenos:
           :lines: 1-10

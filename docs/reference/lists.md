@@ -4,7 +4,7 @@ Lists are useful because they emphasize certain information in regular text. The
 
 ## Bullet Lists
 
-```{furo-demo}
+```{neocrym-sphinx-theme-demo}
 - Bullet lists in Markdown are pretty straightforward.
 - A bunch of bullet points.
   - Nested bullets should be indented by two or more spaces.
@@ -33,7 +33,7 @@ Lists are useful because they emphasize certain information in regular text. The
 
 ## Numbered Lists
 
-```{furo-demo}
+```{neocrym-sphinx-theme-demo}
 1. Numbered lists are not complicated.
 2. They do exactly what you think they do.
 
@@ -46,7 +46,7 @@ Lists are useful because they emphasize certain information in regular text. The
 
 ## Definition Lists
 
-```{furo-demo}
+```{neocrym-sphinx-theme-demo}
 Definition Lists
 :  An extremely useful tool for describing stuff.
 

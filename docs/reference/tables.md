@@ -2,7 +2,7 @@
 
 Tables can be the best way to organize sets of related pieces of data. Sphinx supports including tables inline, although the exact syntax and capabilities depend on the markup language used.
 
-````{furo-demo}
+````{neocrym-sphinx-theme-demo}
 
 MyST supports tables like [GitHub Flavoured Markdown][1].
 

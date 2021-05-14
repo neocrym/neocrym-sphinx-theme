@@ -1,0 +1,45 @@
+name: Release
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install build
+          npm install
+
+      - name: Generate release assets
+        run: ./node_modules/.bin/gulp build
+
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
+
+      - name: Generate final distribution
+        run: |
+          sed -i.bak "s/__version__ = \"0.0.0\"/__version__ = \"${{ steps.get_version.outputs.VERSION }}\"/g" src/neocrym_sphinx_theme/__init__.py
+          python3 -m build
+          python3 -m pip wheel --no-deps --wheel-dir=dist .
+
+      - name: Publish wheel to PyPI
+        run: twine upload --non-interactive dist/*
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}

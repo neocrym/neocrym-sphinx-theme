@@ -7,7 +7,7 @@ import tempfile
 
 import nox
 
-PACKAGE_NAME = "furo"
+PACKAGE_NAME = "neocrym_sphinx_theme"
 nox.options.sessions = ["lint", "test"]
 
 
@@ -49,7 +49,7 @@ def docs_live(session):
             "--port=0",
             "--watch=src/",
             f"--pre-build={build_command}",
-            r"--re-ignore=src/.*/theme/furo/static/.*\.(css|js)",  # ignore the generated files
+            r"--re-ignore=src/.*/theme/neocrym_sphinx_theme/static/.*\.(css|js)",  # ignore the generated files
             "--open-browser",
             # for sphinx
             "-b=dirhtml",

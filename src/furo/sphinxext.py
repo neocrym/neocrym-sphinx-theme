@@ -1,6 +1,6 @@
-"""Sphinx Extensions to simplify writing Furo's Reference documentation.
+"""Sphinx Extensions to simplify writing neocrym_sphinx_theme's Reference documentation.
 
-This provides a single `furo-demo` directive, which:
+This provides a single `neocrym_sphinx_theme-demo` directive, which:
 
 - Only works when used in a MyST document.
 - Requires sphinx-inline-tabs' tab directive.
@@ -78,7 +78,7 @@ def _translate_into_tab_demo(block_text: str) -> StringList:
     return string_list
 
 
-class _FuroDemoDirective(SphinxDirective):
+class _neocrym_sphinx_themeDemoDirective(SphinxDirective):
     has_content = True
 
     def run(self) -> Any:
@@ -92,4 +92,4 @@ class _FuroDemoDirective(SphinxDirective):
 
 def setup(app: Sphinx) -> None:
     """For setting up the directive."""
-    app.add_directive("furo-demo", _FuroDemoDirective)
+    app.add_directive("neocrym_sphinx_theme-demo", _neocrym_sphinx_themeDemoDirective)

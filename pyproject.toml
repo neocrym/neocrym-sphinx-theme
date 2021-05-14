@@ -3,10 +3,10 @@ requires = ["flit_core >=2,<4"]
 build-backend = "flit_core.buildapi"
 
 [tool.flit.metadata]
-module = "furo"
-author = "Pradyun Gedam"
-author-email = "mail@pradyunsg.me"
-home-page = "https://github.com/pradyunsg/furo"
+module = "neocrym_sphinx_theme"
+author = "Neocrym Records Inc."
+author-email = "engineering@neocrym.com"
+home-page = "https://github.com/neocrym/neocrym-sphinx-theme"
 description-file = "README.md"
 requires-python = ">=3.6"
 requires = [
@@ -46,15 +46,15 @@ doc = [
 ]
 
 [tool.flit.entrypoints]
-"sphinx.html_themes" = {furo = "furo"}
+"sphinx.html_themes" = {neocrym_sphinx_theme = "neocrym_sphinx_theme"}
 
 [tool.flit.sdist]
 include = [
   # Generated assets
-  "src/furo/theme/furo/static/*/*",
+  "src/neocrym_sphinx_theme/theme/neocrym_sphinx_theme/static/*/*",
 ]
 exclude = [
-  "docs/", "src/furo/assets",
+  "docs/", "src/neocrym_sphinx_theme/assets",
   # JS stuff
   "gulpfile.js", "package.json", "package-lock.json",
   # Linting stuff

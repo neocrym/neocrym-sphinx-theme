@@ -17,8 +17,8 @@ var cssnano = require("cssnano");
 var easyImport = require("postcss-easy-import");
 
 var plugins = [easyImport(), autoprefixer(), cssnano()];
-var src_path = "./src/furo/assets/";
-var dest_path = "./src/furo/theme/furo/static";
+var src_path = "./src/neocrym_sphinx_theme/assets/";
+var dest_path = "./src/neocrym_sphinx_theme/theme/neocrym_sphinx_theme/static";
 
 function css() {
   return gulp

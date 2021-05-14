@@ -15,7 +15,7 @@ from sphinx.highlighting import PygmentsBridge
 
 from .navigation import get_navigation_tree
 
-THEME_PATH = (Path(__file__).parent / "theme" / "furo").resolve()
+THEME_PATH = (Path(__file__).parent / "theme" / "neocrym_sphinx_theme").resolve()
 
 logger = logging.getLogger(__name__)
 
@@ -117,7 +117,7 @@ def _compute_hide_toc(context: Dict[str, Any]) -> bool:
 
 
 @lru_cache(maxsize=None)
-def furo_asset_hash(path: str) -> str:
+def neocrym_sphinx_theme_asset_hash(path: str) -> str:
     """Append a `?digest=` to an url based on the file content."""
     full_path = THEME_PATH / "static" / path
     digest = hashlib.sha1(full_path.read_bytes()).hexdigest()
@@ -132,24 +132,24 @@ def _html_page_context(
     context: Dict[str, Any],
     doctree: Any,
 ) -> None:
-    if app.config.html_theme != "furo":
+    if app.config.html_theme != "neocrym_sphinx_theme":
         return
 
     # Basic constants
-    context["furo_version"] = __version__
+    context["neocrym_sphinx_theme_version"] = __version__
 
     # Assets
-    context["furo_assets"] = {
-        "furo-extensions.css": furo_asset_hash("styles/furo-extensions.css"),
-        "main.js": furo_asset_hash("scripts/main.js"),
+    context["neocrym_sphinx_theme_assets"] = {
+        "neocrym_sphinx_theme-extensions.css": neocrym_sphinx_theme_asset_hash("styles/neocrym_sphinx_theme-extensions.css"),
+        "main.js": neocrym_sphinx_theme_asset_hash("scripts/main.js"),
     }
 
     # Values computed from page-level context.
-    context["furo_navigation_tree"] = _compute_navigation_tree(context)
-    context["furo_hide_toc"] = _compute_hide_toc(context)
+    context["neocrym_sphinx_theme_navigation_tree"] = _compute_navigation_tree(context)
+    context["neocrym_sphinx_theme_hide_toc"] = _compute_hide_toc(context)
 
     # Inject information about styles
-    context["furo_pygments"] = {
+    context["neocrym_sphinx_theme_pygments"] = {
         "light": get_colors_for_codeblocks(
             app.builder.highlighter,
             fg="black",
@@ -167,19 +167,19 @@ def _html_page_context(
         context["body"] = wrap_elements_that_can_get_too_wide(context["body"])
 
     should_use_own_styles = (
-        # Not using the HTML builders with Furo for some reason?
+        # Not using the HTML builders with neocrym_sphinx_theme for some reason?
         "style" not in context
-        # Did not override Furo's default CSS
-        or context["style"] == "styles/furo.css"
+        # Did not override neocrym_sphinx_theme's default CSS
+        or context["style"] == "styles/neocrym_sphinx_theme.css"
     )
     if should_use_own_styles:
-        context["furo_assets"]["style"] = furo_asset_hash("styles/furo.css")
+        context["neocrym_sphinx_theme_assets"]["style"] = neocrym_sphinx_theme_asset_hash("styles/neocrym_sphinx_theme.css")
     else:
-        context["furo_assets"]["style"] = "_static/" + context["style"]
+        context["neocrym_sphinx_theme_assets"]["style"] = "_static/" + context["style"]
 
 
 def _builder_inited(app: sphinx.application.Sphinx) -> None:
-    if app.config.html_theme != "furo":
+    if app.config.html_theme != "neocrym_sphinx_theme":
         return
 
     builder = app.builder
@@ -239,7 +239,7 @@ def _builder_inited(app: sphinx.application.Sphinx) -> None:
     except (AttributeError, KeyError) as e:
         logger.warn(
             (
-                "Furo could not determine the value of `pygments_dark_style`. "
+                "neocrym_sphinx_theme could not determine the value of `pygments_dark_style`. "
                 "Falling back to using the value provided by Sphinx.\n"
                 "Caused by %s"
             ),
@@ -261,7 +261,7 @@ def setup(app: sphinx.application.Sphinx) -> Dict[str, Any]:
         "pygments_dark_style", default="native", rebuild="env", types=[str]
     )
 
-    app.add_html_theme("furo", str(THEME_PATH))
+    app.add_html_theme("neocrym_sphinx_theme", str(THEME_PATH))
 
     app.connect("html-page-context", _html_page_context)
     app.connect("builder-inited", _builder_inited)

@@ -226,7 +226,7 @@ $admonitions: (
   --color-link-underline--hover: var(--color-foreground-border);
 }
 
-@media (prefers-color-scheme: dark) {
+@media screen {
   :root {
     --color-problematic: #e25050;
 

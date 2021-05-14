@@ -6,10 +6,12 @@ user_customisations -%} {% for name, value in user_customisations.items() -%}
 --{{ name }}: {{ value }}; {% endfor %} {%- endif %} {%- endmacro %}
 
 <style>
-  :root {
-    {{ declare_css_variables(theme_light_css_variables, neocrym_sphinx_theme_pygments.light) }}
+  @media print {
+    :root {
+      {{ declare_css_variables(theme_light_css_variables, neocrym_sphinx_theme_pygments.light) }}
+    }
   }
-  @media (prefers-color-scheme: dark) {
+  @media screen {
     :root {
       {{ declare_css_variables(theme_dark_css_variables, neocrym_sphinx_theme_pygments.dark) }}
     }

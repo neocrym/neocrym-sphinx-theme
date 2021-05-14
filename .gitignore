@@ -2,6 +2,7 @@
 node_modules
 
 # Python stuff
+venv
 .nox
 /build
 /dist

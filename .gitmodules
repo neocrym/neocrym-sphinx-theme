@@ -1,3 +1,0 @@
-[submodule "src/neocrym_sphinx_theme/theme/neocrym_sphinx_theme/static/global"]
-	path = src/neocrym_sphinx_theme/theme/neocrym_sphinx_theme/static/global
-	url = git@github.com:neocrym/static.git

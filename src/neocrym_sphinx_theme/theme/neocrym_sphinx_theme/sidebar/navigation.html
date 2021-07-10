@@ -1,6 +1,7 @@
 <div class="sidebar-tree">
   {{ neocrym_sphinx_theme_navigation_tree }}
-  {% if versions %}
+  
+  {% if versions and not READTHEDOCS %}
     <p class="caption"><span class="caption-text">Versions (Branches)</span></p>
     <ul>
         {% for item in versions.branches %}

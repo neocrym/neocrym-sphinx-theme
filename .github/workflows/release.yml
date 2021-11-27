@@ -1,49 +1,45 @@
-# This is mostly experimental. Right now, all it does is create a GitHub release
-# and then try to upload to TestPyPI. The second step seems to be consistently
-# failing. :)
-
 name: Release
 on:
   push:
     tags:
-      - "*"
-
-permissions:
-  contents: write
+      - "v*"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+  release:
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
+
       - uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
 
       - name: Install dependencies
-        run: pip install build
+        run: |
+          python3 -m pip install --upgrade pip wheel twine
+          python3 -m pip install build
+          npm install
+      - name: Generate release assets
+        run: ./node_modules/.bin/gulp build
+
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
 
       - name: Generate final distribution
-        run: python -m build
-
-      - name: Upload source distribution as an action artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: sdist
-          path: dist/neocrym-sphinx-theme-*.tar.gz
-      - name: Upload wheel distribution as an action artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: wheel
-          path: dist/neocrym-sphinx-theme-*-py3-none-any.whl
-
-      - name: Make a GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: dist/*
-
-      - name: Upload to TestPyPI
-        uses: pypa/gh-action-pypi-publish@v1.4.1
-        with:
-          user: __token__
-          password: ${{ secrets.TESTPYPI_API_TOKEN }}
-          repository_url: https://test.pypi.org/legacy/
-          verbose: true
+        run: |
+          sed -i.bak "s/__version__ = \"0.0.0\"/__version__ = \"${{ steps.get_version.outputs.VERSION }}\"/g" src/neocrym_sphinx_theme/__init__.py
+          python3 -m build
+          python3 -m pip wheel --no-deps --wheel-dir=dist .
+      - name: Publish wheel to PyPI
+        run: twine upload --non-interactive dist/*
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}

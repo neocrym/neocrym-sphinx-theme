@@ -19,7 +19,8 @@ from sphinx.highlighting import PygmentsBridge
 
 from .navigation import get_navigation_tree
 
-THEME_PATH = (Path(__file__).parent / "theme" / "furo").resolve()
+THEME_NAME = "neocrym-sphinx-theme"
+THEME_PATH = (Path(__file__).parent / "theme" / THEME_NAME).resolve()
 
 logger = logging.getLogger(__name__)
 
@@ -145,18 +146,18 @@ def _html_page_context(
     context: Dict[str, Any],
     doctree: Any,
 ) -> None:
-    if app.config.html_theme != "furo":
+    if app.config.html_theme != THEME_NAME:
         return
 
     if "css_files" in context:
         _add_asset_hashes(
             context["css_files"],
-            ["styles/furo.css", "styles/furo-extensions.css"],
+            ["styles/neocrym-sphinx-theme.css", "styles/neocrym-sphinx-theme-extensions.css"],
         )
     if "scripts" in context:
         _add_asset_hashes(
             context["scripts"],
-            ["scripts/furo.js"],
+            ["scripts/neocrym-sphinx-theme.js"],
         )
 
     # Basic constants
@@ -190,26 +191,26 @@ def _html_page_context(
 
 
 def _builder_inited(app: sphinx.application.Sphinx) -> None:
-    if app.config.html_theme != "furo":
+    if app.config.html_theme != THEME_NAME:
         return
-    if "furo" in app.config.extensions:
+    if "neocrym_sphinx_theme" in app.config.extensions:
         raise Exception(
             "Did you list it in the `extensions` in conf.py? "
-            "If so, please remove it. Furo does not work with non-HTML builders "
+            "If so, please remove it. neocrym_sphinx_theme does not work with non-HTML builders "
             "and specifying it as an `html_theme` is sufficient."
         )
 
     if not isinstance(app.builder, StandaloneHTMLBuilder):
         raise Exception(
-            "Furo is being used as an extension in a non-HTML build. "
+            "neocrym_sphinx_theme is being used as an extension in a non-HTML build. "
             "This should not happen."
         )
 
     # Our JS file needs to be loaded as soon as possible.
-    app.add_js_file("scripts/furo.js", priority=200)
+    app.add_js_file("scripts/neocrym-sphinx-theme.js", priority=200)
 
     # 500 is the default priority for extensions, we want this after this.
-    app.add_css_file("styles/furo-extensions.css", priority=600)
+    app.add_css_file("styles/neocrym-sphinx-theme-extensions.css", priority=600)
 
     builder = app.builder
     assert builder, "what?"
@@ -357,7 +358,7 @@ def setup(app: sphinx.application.Sphinx) -> Dict[str, Any]:
         "pygments_dark_style", default="native", rebuild="env", types=[str]
     )
 
-    app.add_html_theme("furo", str(THEME_PATH))
+    app.add_html_theme(THEME_NAME, str(THEME_PATH))
 
     app.connect("html-page-context", _html_page_context)
     app.connect("builder-inited", _builder_inited)

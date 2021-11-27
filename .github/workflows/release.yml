@@ -28,12 +28,12 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: sdist
-          path: dist/furo-*.tar.gz
+          path: dist/neocrym-sphinx-theme-*.tar.gz
       - name: Upload wheel distribution as an action artifact
         uses: actions/upload-artifact@v2
         with:
           name: wheel
-          path: dist/furo-*-py3-none-any.whl
+          path: dist/neocrym-sphinx-theme-*-py3-none-any.whl
 
       - name: Make a GitHub Release
         uses: softprops/action-gh-release@v1

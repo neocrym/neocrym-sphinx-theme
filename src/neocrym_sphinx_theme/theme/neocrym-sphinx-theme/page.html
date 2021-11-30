@@ -94,30 +94,18 @@
         </div>
 
         <div class="related-information">
-          {%- if show_copyright %}
-            {%- if hasdoc('copyright') %}
-              {% trans path=pathto('copyright'), copyright=copyright|e -%}
-                <a href="{{ path }}">Copyright</a> &#169; {{ copyright }}.
-              {%- endtrans %}
-            {%- else %}
-              {% trans copyright=copyright|e -%}
-                Copyright &#169; {{ copyright }}
-              {%- endtrans %}
-            {%- endif %}
-          {%- endif %}
-          {%- if last_updated %}
-            {%- if show_copyright %} | {%- endif %}
-            {% trans last_updated=last_updated|e -%}
-              Last updated on {{ last_updated }}.
-            {%- endtrans %}
-          {%- endif %}
-          {%- if show_copyright or last_updated %} | {%- endif %}
-          {%- if show_source and has_source and sourcename %}
-            | <a class="muted-link" href="{{ pathto('_sources/' + sourcename, true)|e }}"
-               rel="nofollow">
-              {{ _('Show Source') }}
-            </a>
-          {%- endif %}
+          <div class="centered">
+            Copyright &#169; <a href="https://www.neocrym.com">Neocrym Records Inc.</a>
+          </div>
+          <br />
+          <ul>
+            <li><a href="https://www.neocrym.com">Neocrym.com</a></li>
+            <li><a href="https://shop.neocrym.com/">Shop</a></li>
+            <li><a href="https://www.neocrym.com/careers/">Careers</a></li>
+            <li><a href="https://www.neocrym.com/privacy/">Privacy</a></li>
+            <li><a href="https://www.neocrym.com/security/">Security</a></li>
+            <li><a href="https://www.neocrym.com/do-not-sell-my-personal-information/">Do Not Sell My Personal Information</a></li>
+          </ul>
         </div>
         {% endblock footer %}
       </footer>

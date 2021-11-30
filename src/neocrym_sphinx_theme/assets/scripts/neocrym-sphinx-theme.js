@@ -65,31 +65,6 @@ function setTheme(mode) {
   console.log(`Changed to ${mode} mode.`);
 }
 
-function cycleThemeOnce() {
-  const currentTheme = localStorage.getItem("theme") || "auto";
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  if (prefersDark) {
-    // Auto (dark) -> Light -> Dark
-    if (currentTheme === "auto") {
-      setTheme("light");
-    } else if (currentTheme == "light") {
-      setTheme("dark");
-    } else {
-      setTheme("auto");
-    }
-  } else {
-    // Auto (light) -> Dark -> Light
-    if (currentTheme === "auto") {
-      setTheme("dark");
-    } else if (currentTheme == "dark") {
-      setTheme("light");
-    } else {
-      setTheme("auto");
-    }
-  }
-}
-
 ////////////////////////////////////////////////////////////////////////////////
 // Setup
 ////////////////////////////////////////////////////////////////////////////////
@@ -126,16 +101,7 @@ function setupScrollSpy() {
   });
 }
 
-function setupTheme() {
-  // Attach event handlers for toggling themes
-  const buttons = document.getElementsByClassName("theme-toggle");
-  Array.from(buttons).forEach((btn) => {
-    btn.addEventListener("click", cycleThemeOnce);
-  });
-}
-
 function setup() {
-  setupTheme();
   setupScrollHandler();
   setupScrollSpy();
 }

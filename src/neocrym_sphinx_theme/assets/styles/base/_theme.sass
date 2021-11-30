@@ -13,41 +13,45 @@ body
 
   @include colors
 
-.only-light
-  display: block !important
-.only-dark
-  display: none !important
-
-// Enable dark-mode, if requested.
-body[data-theme="dark"]
-  @include colors-dark
-
+@media print
+  body
   .only-light
-    display: none !important
-  .only-dark
     display: block !important
 
+  .only-dark
+    display: none !important
+
+  // Hide announcements from the top of the page.
+  .announcement
+    display: none !important
+
+  // Hide icon container.
+  .content-icon-container
+    display: none !important
+
+  // Hide showing header links if hovering over when printing.
+  .headerlink
+    display: none !important
+
+  // Hide mobile header.
+  .mobile-header
+    display: none !important
+
+  // Hide navigation links.
+  .related-pages
+    display: none !important
+
+  // Apply a border around code which no longer have a color background.
+  .highlight
+    border: 0.1pt solid var(--color-foreground-border)
+
+
 // Enable dark mode, unless explicitly told to avoid.
-@media (prefers-color-scheme: dark)
-  body:not([data-theme="light"])
+@media not print
+  body
     @include colors-dark
 
     .only-light
       display: none !important
     .only-dark
       display: block !important
-
-//
-// Theme toggle presentation
-//
-body[data-theme="auto"]
-  .theme-toggle svg.theme-icon-when-auto
-    display: block
-
-body[data-theme="dark"]
-  .theme-toggle svg.theme-icon-when-dark
-    display: block
-
-body[data-theme="light"]
-  .theme-toggle svg.theme-icon-when-light
-    display: block

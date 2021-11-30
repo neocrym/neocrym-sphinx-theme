@@ -318,19 +318,21 @@ def get_pygments_stylesheet() -> str:
 
     There is no way to tell Sphinx how the theme handles dark mode; at this time.
     """
+    css_prefix = "    body .highlight"
+
     light_formatter = HtmlFormatter(style=_KNOWN_STYLES_IN_USE["light"])
     dark_formatter = HtmlFormatter(style=_KNOWN_STYLES_IN_USE["dark"])
 
     lines: List[str] = []
 
-    lines.extend(_get_styles(light_formatter, prefix=".highlight"))
+    # Use the dark Pygments theme on the screen.
+    lines.append("@media not print {")
+    lines.extend(_get_styles(dark_formatter, prefix=css_prefix))
+    lines.append("}")
 
-    dark_prefix = 'body[data-theme="dark"] .highlight'
-    lines.extend(_get_styles(dark_formatter, prefix=dark_prefix))
-
-    not_light_prefix = 'body:not([data-theme="light"]) .highlight'
-    lines.append("@media (prefers-color-scheme: dark) {")
-    lines.extend(_get_styles(dark_formatter, prefix=not_light_prefix))
+    # Use the light Pygments theme for printing.
+    lines.append("@media print {")
+    lines.extend(_get_styles(light_formatter, prefix=css_prefix))
     lines.append("}")
 
     return "\n".join(lines)

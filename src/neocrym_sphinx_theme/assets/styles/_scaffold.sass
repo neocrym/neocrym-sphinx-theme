@@ -169,32 +169,6 @@ article
       text-decoration-color: var(--color-link--hover)
 
 ////////////////////////////////////////////////////////////////////////////////
-// Toggles for theme
-////////////////////////////////////////////////////////////////////////////////
-.no-js .theme-toggle-container  // don't show theme toggle if there's no JS
-  display: none
-
-.theme-toggle-container
-  vertical-align: middle
-
-.theme-toggle
-  cursor: pointer
-  border: none
-  padding: 0
-  background: transparent
-
-.theme-toggle svg
-  vertical-align: middle
-  height: 1rem
-  width: 1rem
-  color: var(--color-foreground-primary)
-  display: none
-
-.theme-toggle-header
-  float: left
-  padding: 1rem 0.5rem
-
-////////////////////////////////////////////////////////////////////////////////
 // Toggles for elements
 ////////////////////////////////////////////////////////////////////////////////
 .toc-overlay-icon, .nav-overlay-icon
@@ -318,10 +292,6 @@ article
   // Swap which icon is visible.
   .toc-header-icon
     display: flex
-  .toc-content-icon, .theme-toggle-content
-    display: none
-  .theme-toggle-header
-    display: block
 
   // Show the header.
   .mobile-header

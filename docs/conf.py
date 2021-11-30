@@ -87,3 +87,6 @@ html_theme_options = {
         "</a>!"
     )
 }
+
+pygments_style = "colorful"
+pygments_dark_style = "fruity"

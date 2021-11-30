@@ -26,7 +26,7 @@ jobs:
           python3 -m pip install build
           npm install
       - name: Generate release assets
-        run: ./node_modules/.bin/gulp build
+        run: ./node_modules/.bin/webpack-cli
 
       - name: Get the version
         id: get_version

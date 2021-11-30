@@ -76,17 +76,18 @@ myst_heading_anchors = 3
 html_theme = "neocrym-sphinx-theme"
 html_title = "neocrym_sphinx_theme"
 language = "en"
-
 html_static_path = ["_static"]
 html_css_files = ["pied-piper-admonition.css"]
-html_theme_options = {
-    "announcement": (
+html_theme_options = dict(
+    announcement=(
         "If you like this theme, you can "
         '<a href="https://shoutouts.dev/projects/pradyunsg/furo">'
         "express your gratitude"
         "</a>!"
-    )
-}
-
+    ),
+    light_logo="https://static.neocrym.com/images/neocrym/v2/SVG/neocrym-rectangle-wordmark-horizontal-black-on-transparent.svg",
+    dark_logo="https://static.neocrym.com/images/neocrym/v2/SVG/neocrym-rectangle-wordmark-horizontal-white-on-transparent.svg",
+    sidebar_hide_name=True,
+)
 pygments_style = "colorful"
 pygments_dark_style = "fruity"

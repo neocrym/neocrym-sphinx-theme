@@ -213,7 +213,7 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="api-documentation">
+          <section id="api-documentation">
 <h1>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h1>
 <p>API documentation serves as an important reference in technical documentation. Sphinx provides many approaches to writing API documentation, from writing them manually as well as automatically generating it from docstrings in your code.</p>
 <p>This example uses <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#module-sphinx.ext.autodoc" title="(in Sphinx v5.0.0+)"><code class="xref any docutils literal notranslate"><span class="pre">sphinx.ext.autodoc</span></code></a> for generating the API documentation skeleton. <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#module-sphinx.ext.intersphinx" title="(in Sphinx v5.0.0+)"><code class="xref any docutils literal notranslate"><span class="pre">sphinx.ext.intersphinx</span></code></a> provides links for classes in type annotations.</p>
@@ -316,7 +316,7 @@ delay). urllib3 will sleep for:</p>
 </div>
 <p>seconds. If the backoff_factor is 0.1, then <code class="xref py py-func docutils literal notranslate"><span class="pre">sleep()</span></code> will sleep
 for [0.0s, 0.2s, 0.4s, …] between retries. It will never be longer
-than <code class="xref py py-attr docutils literal notranslate"><span class="pre">Retry.BACKOFF_MAX</span></code>.</p>
+than <code class="xref py py-attr docutils literal notranslate"><span class="pre">Retry.DEFAULT_BACKOFF_MAX</span></code>.</p>
 <p>By default, backoff is disabled (set to 0).</p>
 </p></li>
 <li><p><strong>raise_on_redirect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether, if the number of redirects is
@@ -339,13 +339,13 @@ request.</p></li>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">BACKOFF_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">120</span></em></dt>
-<dd><p>Maximum backoff time.</p>
+<span class="sig-name descname"><span class="pre">DEFAULT_ALLOWED_METHODS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({'DELETE',</span> <span class="pre">'GET',</span> <span class="pre">'HEAD',</span> <span class="pre">'OPTIONS',</span> <span class="pre">'PUT',</span> <span class="pre">'TRACE'})</span></em></dt>
+<dd><p>Default methods to be used for <code class="docutils literal notranslate"><span class="pre">allowed_methods</span></code></p>
 </dd></dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">DEFAULT_ALLOWED_METHODS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({'DELETE',</span> <span class="pre">'GET',</span> <span class="pre">'HEAD',</span> <span class="pre">'OPTIONS',</span> <span class="pre">'PUT',</span> <span class="pre">'TRACE'})</span></em></dt>
-<dd><p>Default methods to be used for <code class="docutils literal notranslate"><span class="pre">allowed_methods</span></code></p>
+<span class="sig-name descname"><span class="pre">DEFAULT_BACKOFF_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">120</span></em></dt>
+<dd><p>Maximum backoff time.</p>
 </dd></dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
@@ -441,18 +441,18 @@ this method will return immediately.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>total</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><em>None</em></a>) – <p>This combines the connect and read timeouts into one; the read timeout
+<li><p><strong>total</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, or </em><em>None</em>) – <p>This combines the connect and read timeouts into one; the read timeout
 will be set to the time leftover from the connect attempt. In the
 event that both a connect timeout and a total are specified, or a read
 timeout and a total are specified, the shorter timeout will be applied.</p>
 <p>Defaults to None.</p>
 </p></li>
-<li><p><strong>connect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><em>None</em></a>) – The maximum amount of time (in seconds) to wait for a connection
+<li><p><strong>connect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, or </em><em>None</em>) – The maximum amount of time (in seconds) to wait for a connection
 attempt to a server to succeed. Omitting the parameter will default the
 connect timeout to the system default, probably <a class="reference external" href="http://hg.python.org/cpython/file/603b4d593758/Lib/socket.py#l535">the global default
 timeout in socket.py</a>.
 None will set an infinite timeout for connection attempts.</p></li>
-<li><p><strong>read</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><em>None</em></a>) – <p>The maximum amount of time (in seconds) to wait between consecutive
+<li><p><strong>read</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, or </em><em>None</em>) – <p>The maximum amount of time (in seconds) to wait between consecutive
 read operations for a response from the server. Omitting the parameter
 will default the read timeout to the system default, probably <a class="reference external" href="http://hg.python.org/cpython/file/603b4d593758/Lib/socket.py#l535">the
 global default timeout in socket.py</a>.
@@ -526,7 +526,7 @@ object that sets the individual timeouts to the <code class="docutils literal no
 passed to this function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>timeout</strong> (<em>integer</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>sentinel default object</em><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><em>None</em></a>) – The legacy timeout value.</p>
+<dd class="field-odd"><p><strong>timeout</strong> (<em>integer</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>sentinel default object</em><em>, or </em><em>None</em>) – The legacy timeout value.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Timeout object</p>
@@ -689,7 +689,7 @@ delay). urllib3 will sleep for:</p>
 </div>
 <p>seconds. If the backoff_factor is 0.1, then <code class="xref py py-func docutils literal notranslate"><span class="pre">sleep()</span></code> will sleep
 for [0.0s, 0.2s, 0.4s, …] between retries. It will never be longer
-than <code class="xref py py-attr docutils literal notranslate"><span class="pre">Retry.BACKOFF_MAX</span></code>.</p>
+than <code class="xref py py-attr docutils literal notranslate"><span class="pre">Retry.DEFAULT_BACKOFF_MAX</span></code>.</p>
 <p>By default, backoff is disabled (set to 0).</p>
 </p></li>
 <li><p><strong>raise_on_redirect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether, if the number of redirects is
@@ -712,13 +712,13 @@ request.</p></li>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">BACKOFF_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">120</span></em></dt>
-<dd><p>Maximum backoff time.</p>
+<span class="sig-name descname"><span class="pre">DEFAULT_ALLOWED_METHODS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({'DELETE',</span> <span class="pre">'GET',</span> <span class="pre">'HEAD',</span> <span class="pre">'OPTIONS',</span> <span class="pre">'PUT',</span> <span class="pre">'TRACE'})</span></em></dt>
+<dd><p>Default methods to be used for <code class="docutils literal notranslate"><span class="pre">allowed_methods</span></code></p>
 </dd></dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">DEFAULT_ALLOWED_METHODS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({'DELETE',</span> <span class="pre">'GET',</span> <span class="pre">'HEAD',</span> <span class="pre">'OPTIONS',</span> <span class="pre">'PUT',</span> <span class="pre">'TRACE'})</span></em></dt>
-<dd><p>Default methods to be used for <code class="docutils literal notranslate"><span class="pre">allowed_methods</span></code></p>
+<span class="sig-name descname"><span class="pre">DEFAULT_BACKOFF_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">120</span></em></dt>
+<dd><p>Maximum backoff time.</p>
 </dd></dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
@@ -814,18 +814,18 @@ this method will return immediately.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>total</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><em>None</em></a>) – <p>This combines the connect and read timeouts into one; the read timeout
+<li><p><strong>total</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, or </em><em>None</em>) – <p>This combines the connect and read timeouts into one; the read timeout
 will be set to the time leftover from the connect attempt. In the
 event that both a connect timeout and a total are specified, or a read
 timeout and a total are specified, the shorter timeout will be applied.</p>
 <p>Defaults to None.</p>
 </p></li>
-<li><p><strong>connect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><em>None</em></a>) – The maximum amount of time (in seconds) to wait for a connection
+<li><p><strong>connect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, or </em><em>None</em>) – The maximum amount of time (in seconds) to wait for a connection
 attempt to a server to succeed. Omitting the parameter will default the
 connect timeout to the system default, probably <a class="reference external" href="http://hg.python.org/cpython/file/603b4d593758/Lib/socket.py#l535">the global default
 timeout in socket.py</a>.
 None will set an infinite timeout for connection attempts.</p></li>
-<li><p><strong>read</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><em>None</em></a>) – <p>The maximum amount of time (in seconds) to wait between consecutive
+<li><p><strong>read</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, or </em><em>None</em>) – <p>The maximum amount of time (in seconds) to wait between consecutive
 read operations for a response from the server. Omitting the parameter
 will default the read timeout to the system default, probably <a class="reference external" href="http://hg.python.org/cpython/file/603b4d593758/Lib/socket.py#l535">the
 global default timeout in socket.py</a>.
@@ -899,7 +899,7 @@ object that sets the individual timeouts to the <code class="docutils literal no
 passed to this function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>timeout</strong> (<em>integer</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>sentinel default object</em><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><em>None</em></a>) – The legacy timeout value.</p>
+<dd class="field-odd"><p><strong>timeout</strong> (<em>integer</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>sentinel default object</em><em>, or </em><em>None</em>) – The legacy timeout value.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Timeout object</p>
